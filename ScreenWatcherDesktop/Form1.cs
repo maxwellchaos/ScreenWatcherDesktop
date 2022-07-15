@@ -329,5 +329,14 @@ namespace ScreenWatcherDesktop
         {
             
         }
+
+        private void ComputerNameTextBox3_TextChanged(object sender, EventArgs e)
+        {
+            if (ComputerNameTextBox3.Text.Length > 16)
+            {
+                ComputerNameTextBox3.Text = ComputerNameTextBox3.Text.Remove(16);
+                ComputerNameTextBox3.Select(ComputerNameTextBox3.Text.Length, 0);
+            }
+        }
     }
 }

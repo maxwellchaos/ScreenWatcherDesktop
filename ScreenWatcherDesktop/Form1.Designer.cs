@@ -114,6 +114,7 @@
             this.ComputerNameTextBox3.Name = "ComputerNameTextBox3";
             this.ComputerNameTextBox3.Size = new System.Drawing.Size(251, 20);
             this.ComputerNameTextBox3.TabIndex = 14;
+            this.ComputerNameTextBox3.TextChanged += new System.EventHandler(this.ComputerNameTextBox3_TextChanged);
             // 
             // label8
             // 
