@@ -125,15 +125,15 @@ namespace ScreenWatcherDesktop
             SaveValues();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
+        private async void timer1_Tick(object sender, EventArgs e)
+        { 
             //Удалить лишний слеш, если он есть
             if (ServerAdressTextBox2.Text[ServerAdressTextBox2.Text.Length - 1] == '/')
                 ServerAdressTextBox2.Text = ServerAdressTextBox2.Text.Remove(ServerAdressTextBox2.Text.Length - 1);
 
             //Отправка данных
             string serverAdress = ServerAdressTextBox2.Text;
-            label8.Text = "Адрес сервера ";
+           // label8.Text = "Адрес сервера ";
             var message = new ComputerWork();
             message.ComputerId = ComputerIdTextBox4.Text;
             message.ComputerName = ComputerNameTextBox3.Text;
@@ -154,18 +154,24 @@ namespace ScreenWatcherDesktop
                 label3.Text = "Видео остановлено";
                 message.IsRunning = false;
             }
+            bool bSuccess = true;
             try
             {
                 //Собрать сообщение
                 string jsonMessage = JsonConvert.SerializeObject(message);
                 //Послать сообщение
                 var stringContent = new StringContent(jsonMessage, Encoding.UTF8, "application/json");
-                var response = new HttpClient().PostAsync(serverAdress + @"/api/FromDesktop", stringContent);
-
+                var response = await new HttpClient().PostAsync(serverAdress + @"/api/FromDesktop", stringContent);
+                textBox1.Text = response.ToString();
             }
             catch (Exception ex)
             {
-                label8.Text = "Адрес сервера " + ex.Message;
+                label8.Text = "Адрес сервера (Сервер не отвечает)";
+                bSuccess = false;
+            }
+            if(bSuccess)
+            {
+                label8.Text = "Адрес сервера  (Успешная отправка данных)";
             }
             //Перерисовать скриншот
             pictureBox1.Invalidate();
@@ -320,14 +326,9 @@ namespace ScreenWatcherDesktop
             timer1_Tick(sender, e);
         }
 
-        private void ServerAdressTextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void ServerAdressTextBox2_Leave(object sender, EventArgs e)
         {
-            
+            timer1_Tick(null, null);
         }
 
         private void ComputerNameTextBox3_TextChanged(object sender, EventArgs e)

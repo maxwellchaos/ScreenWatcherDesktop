@@ -52,6 +52,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VerticalTo)).BeginInit();
@@ -64,6 +65,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.ComputerIdTextBox4);
             this.panel1.Controls.Add(this.label9);
@@ -96,7 +98,7 @@
             this.ComputerIdTextBox4.Location = new System.Drawing.Point(283, 114);
             this.ComputerIdTextBox4.Name = "ComputerIdTextBox4";
             this.ComputerIdTextBox4.ReadOnly = true;
-            this.ComputerIdTextBox4.Size = new System.Drawing.Size(251, 20);
+            this.ComputerIdTextBox4.Size = new System.Drawing.Size(202, 20);
             this.ComputerIdTextBox4.TabIndex = 16;
             // 
             // label9
@@ -112,7 +114,7 @@
             // 
             this.ComputerNameTextBox3.Location = new System.Drawing.Point(283, 72);
             this.ComputerNameTextBox3.Name = "ComputerNameTextBox3";
-            this.ComputerNameTextBox3.Size = new System.Drawing.Size(251, 20);
+            this.ComputerNameTextBox3.Size = new System.Drawing.Size(202, 20);
             this.ComputerNameTextBox3.TabIndex = 14;
             this.ComputerNameTextBox3.TextChanged += new System.EventHandler(this.ComputerNameTextBox3_TextChanged);
             // 
@@ -129,10 +131,9 @@
             // 
             this.ServerAdressTextBox2.Location = new System.Drawing.Point(283, 36);
             this.ServerAdressTextBox2.Name = "ServerAdressTextBox2";
-            this.ServerAdressTextBox2.Size = new System.Drawing.Size(251, 20);
+            this.ServerAdressTextBox2.Size = new System.Drawing.Size(202, 20);
             this.ServerAdressTextBox2.TabIndex = 12;
             this.ServerAdressTextBox2.Text = "https://localhost:7187";
-            this.ServerAdressTextBox2.TextChanged += new System.EventHandler(this.ServerAdressTextBox2_TextChanged);
             this.ServerAdressTextBox2.Leave += new System.EventHandler(this.ServerAdressTextBox2_Leave);
             // 
             // groupBox1
@@ -305,6 +306,14 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(495, 36);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(235, 98);
+            this.textBox2.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,5 +362,6 @@
         private System.Windows.Forms.TextBox ComputerNameTextBox3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox ServerAdressTextBox2;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
