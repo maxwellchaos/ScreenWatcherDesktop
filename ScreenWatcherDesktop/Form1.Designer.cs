@@ -52,7 +52,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VerticalTo)).BeginInit();
@@ -65,7 +66,8 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.ComputerIdTextBox4);
             this.panel1.Controls.Add(this.label9);
@@ -87,7 +89,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(280, 98);
+            this.label10.Location = new System.Drawing.Point(253, 61);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(115, 13);
             this.label10.TabIndex = 17;
@@ -95,7 +97,7 @@
             // 
             // ComputerIdTextBox4
             // 
-            this.ComputerIdTextBox4.Location = new System.Drawing.Point(283, 114);
+            this.ComputerIdTextBox4.Location = new System.Drawing.Point(256, 77);
             this.ComputerIdTextBox4.Name = "ComputerIdTextBox4";
             this.ComputerIdTextBox4.ReadOnly = true;
             this.ComputerIdTextBox4.Size = new System.Drawing.Size(202, 20);
@@ -104,7 +106,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(280, 56);
+            this.label9.Location = new System.Drawing.Point(253, 22);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(126, 13);
             this.label9.TabIndex = 15;
@@ -112,7 +114,7 @@
             // 
             // ComputerNameTextBox3
             // 
-            this.ComputerNameTextBox3.Location = new System.Drawing.Point(283, 72);
+            this.ComputerNameTextBox3.Location = new System.Drawing.Point(256, 38);
             this.ComputerNameTextBox3.Name = "ComputerNameTextBox3";
             this.ComputerNameTextBox3.Size = new System.Drawing.Size(202, 20);
             this.ComputerNameTextBox3.TabIndex = 14;
@@ -121,7 +123,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(280, 20);
+            this.label8.Location = new System.Drawing.Point(461, 21);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(83, 13);
             this.label8.TabIndex = 13;
@@ -129,11 +131,12 @@
             // 
             // ServerAdressTextBox2
             // 
-            this.ServerAdressTextBox2.Location = new System.Drawing.Point(283, 36);
+            this.ServerAdressTextBox2.Location = new System.Drawing.Point(464, 39);
             this.ServerAdressTextBox2.Name = "ServerAdressTextBox2";
-            this.ServerAdressTextBox2.Size = new System.Drawing.Size(202, 20);
+            this.ServerAdressTextBox2.Size = new System.Drawing.Size(195, 20);
             this.ServerAdressTextBox2.TabIndex = 12;
             this.ServerAdressTextBox2.Text = "https://localhost:7187";
+            this.ServerAdressTextBox2.TextChanged += new System.EventHandler(this.ServerAdressTextBox2_TextChanged);
             this.ServerAdressTextBox2.Leave += new System.EventHandler(this.ServerAdressTextBox2_Leave);
             // 
             // groupBox1
@@ -306,13 +309,25 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // textBox2
+            // button1
             // 
-            this.textBox2.Location = new System.Drawing.Point(495, 36);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(235, 98);
-            this.textBox2.TabIndex = 18;
+            this.button1.Location = new System.Drawing.Point(464, 64);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(195, 26);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Тест сервера";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(461, 93);
+            this.label11.MaximumSize = new System.Drawing.Size(200, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(182, 13);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "Проверка соединения с сервером";
             // 
             // Form1
             // 
@@ -362,6 +377,7 @@
         private System.Windows.Forms.TextBox ComputerNameTextBox3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox ServerAdressTextBox2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label11;
     }
 }

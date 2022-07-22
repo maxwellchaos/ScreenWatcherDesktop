@@ -133,7 +133,6 @@ namespace ScreenWatcherDesktop
 
             //Отправка данных
             string serverAdress = ServerAdressTextBox2.Text;
-           // label8.Text = "Адрес сервера ";
             var message = new ComputerWork();
             message.ComputerId = ComputerIdTextBox4.Text;
             message.ComputerName = ComputerNameTextBox3.Text;
@@ -162,16 +161,17 @@ namespace ScreenWatcherDesktop
                 //Послать сообщение
                 var stringContent = new StringContent(jsonMessage, Encoding.UTF8, "application/json");
                 var response = await new HttpClient().PostAsync(serverAdress + @"/api/FromDesktop", stringContent);
-                textBox1.Text = response.ToString();
+                //textBox1.Text = response.ToString();
             }
             catch (Exception ex)
             {
-                label8.Text = "Адрес сервера (Сервер не отвечает)";
+                label11.Text = "Соединение с сервером отсутствует:"
+                    +ex.Message;
                 bSuccess = false;
             }
             if(bSuccess)
             {
-                label8.Text = "Адрес сервера  (Успешная отправка данных)";
+                label11.Text = "Есть соединение с сервером";
             }
             //Перерисовать скриншот
             pictureBox1.Invalidate();
@@ -192,7 +192,7 @@ namespace ScreenWatcherDesktop
                 //началось выделение
                 MouseDowned = true;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
             }
@@ -338,6 +338,18 @@ namespace ScreenWatcherDesktop
                 ComputerNameTextBox3.Text = ComputerNameTextBox3.Text.Remove(16);
                 ComputerNameTextBox3.Select(ComputerNameTextBox3.Text.Length, 0);
             }
+        }
+
+        private void ServerAdressTextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            label11.Text = "Проверка соединения с сервером";
+            timer1_Tick(sender, e);
+
         }
     }
 }
